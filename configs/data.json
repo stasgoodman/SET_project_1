@@ -1,0 +1,9 @@
+{
+  "protocol": "https",
+  "host": "api.thecatapi.com",
+  "version": "v1",
+  "authorization": {
+    "name": "x-api-key",
+    "value": "DEMO-API-KEY"
+  }
+}
