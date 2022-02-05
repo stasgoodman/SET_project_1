@@ -17,10 +17,10 @@ class GotoApi:
                              headers=self.headers,
                              data={'key': 'value'})
 
-    def get_votes_id(self):
+    def post_votes_id(self, vote_id):
         return requests.post(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes/{vote_id}",
                              headers=self.headers)
 
-    def del_votes(self):
+    def del_votes_id(self, vote_id):
         return requests.post(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes/{vote_id}",
                              headers=self.headers)
