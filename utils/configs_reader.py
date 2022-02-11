@@ -1,8 +1,11 @@
 import json
 
 
+json_file_path = ".\configs\data.json"
+
+
 def open_json_data():
-    with open(".\configs\data.json", "r") as f:
+    with open(json_file_path, "r") as f:
         json_data = json.load(f)
     return json_data
 
