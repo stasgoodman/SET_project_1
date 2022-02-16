@@ -22,6 +22,3 @@ class BaseTest(unittest.TestCase):
         self.sub_id_rand = str(''.join(random.choice(string.ascii_letters) for _ in range(9)))
         self.posts_rand_id = self.catapi.post_votes(sub_id=self.sub_id_rand)
         self.posted_rand_id = self.catapi.post_votes(sub_id=self.sub_id_rand).json()['id']
-
-
-
