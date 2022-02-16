@@ -10,11 +10,8 @@ def catapi_tests():
     Zdarova
     """
     run_catapi_tests()
-
-
-@app.command()
-def blabla():
-    pass
+    run_2_catapi_tests()
+    run_3_catapi_tests()
 
 
 if __name__ == '__main__':
