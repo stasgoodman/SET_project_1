@@ -1,4 +1,5 @@
 import requests
+from tests.base import *
 from utils.configs_reader import DataReader
 
 
@@ -12,15 +13,22 @@ class GotoApi:
         return requests.get(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes",
                             headers=self.headers)
 
-    def post_votes(self):
+    def post_votes(self, sub_id):
+        post_json = {"image_id": ''.join(random.choice(string.ascii_letters) for _ in range(2, 4)),
+                     "sub_id": sub_id,
+                     "value": 1}
         return requests.post(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes",
                              headers=self.headers,
-                             json={'key': 'value'})
+                             json=post_json)
 
-    def get_votes_id(self, vote_id, sub_id):
+    def get_votes_id(self, vote_id=None):
+        return requests.get(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes/{vote_id}",
+                            headers=self.headers)
+
+    def get_sub_id(self, vote_id=None, sub_id=None):
         return requests.get(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes/{vote_id}",
                             headers=self.headers,
-                            params={'sub_id': sub_id})
+                            json={"sub_id": sub_id})
 
     def del_votes_id(self, vote_id):
         return requests.delete(url=f"{self.dread.protocol}://{self.dread.host}/{self.dread.version}/votes/{vote_id}",
